@@ -1,0 +1,20 @@
+<footer class="footer">
+    <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+</footer>
+<% if( theme.qqmta.sid ) { %>
+<script>
+  //腾讯云分析
+  var _mtac = {};
+  (function() {
+    var mta = document.createElement("script");
+    mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+    mta.setAttribute("name", "MTAH5");
+    mta.setAttribute("sid", "<%= theme.qqmta.sid %>");
+
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(mta, s);
+  })();
+</script>
+<% } %>
+<script src="https://js.fundebug.cn/fundebug.1.2.0.min.js"
+        apikey="ae360215ad4a1bc4bedf1e1836aae88cca3fcf69de81c7c0bd4599a170818650"></script>

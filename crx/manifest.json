@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "learning test crx",
+  "description": "A auto test tool for learning center project, it is chrome extension",
+  "version": "1.0",
+  "permissions":  [
+    "activeTab",
+    "storage",
+    "cookies",
+    "proxy",
+    "https://*/"
+  ],
+  "browser_action": {
+    "default_title":"Learning Center Test",
+    "default_icon": "favicon.jpg",
+    "default_popup": "popup.html"
+  }
+}

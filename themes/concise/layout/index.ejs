@@ -1,0 +1,19 @@
+<% var last; %>
+<section class="archives-wrap">
+  <ol class="desc">
+    <% page.posts.each(function(post, i) { %>
+    <li class="desc-section-item">
+      <%- partial('_partial/desc', {post: post, view: false}) %>
+    </li>
+    <% }) %>
+  </ol>
+</section>
+
+<% if (page.total > 1){ %>
+<nav class="page-nav">
+  <%- paginator({
+    prev_text: '&laquo; ' + __('prev'),
+    next_text: __('next') + ' &raquo;'
+  }) %>
+</nav>
+<% } %>

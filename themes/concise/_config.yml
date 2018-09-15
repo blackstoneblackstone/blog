@@ -1,0 +1,59 @@
+# Header
+menu:
+  Home: /
+  Code: categories/Code
+  Read: categories/Read
+  Life: categories/Life
+  English: categories/English
+  Tags: javascript:;
+  Docs: archives
+
+# Content
+excerpt_link: more
+
+# Sidebar
+author:
+  name: Steven
+  work: Coder &amp; A life learner
+  location: Beijing, China
+  avatar_url: https://tvax1.sinaimg.cn/crop.0.0.750.750.180/5c2e98bfly8fgf1weephpj20ku0kuabj.jpg
+
+links:
+  github: https://github.com/lihongbin100
+  codepen: https://codepen.io/lihongbin100/pens/public/?grid_type=list
+  more: http://www.simamedia.cn
+
+# widgets:
+# - category
+# - tag
+# - tagcloud
+# - archive
+# - recent_posts
+
+# display widgets at the bottom of index pages (pagination == 2)
+# index_widgets:
+# - category
+# - tagcloud
+# - archive
+
+# widget behavior
+show_count: true
+archive_type: 'monthly'
+
+# Disqus 
+disqus:
+  enable: true
+  shortname: lihb    #your name
+  count: true
+
+# 腾讯云分析 http://mta.qq.com/h5/base/ctr_realtime_data?app_id=500419572
+qqmta:
+  sid: 500419572
+
+# Miscellaneous
+google_analytics:
+favicon: https://tvax1.sinaimg.cn/crop.0.0.750.750.180/5c2e98bfly8fgf1weephpj20ku0kuabj.jpg
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:

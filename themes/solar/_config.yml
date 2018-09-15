@@ -1,0 +1,68 @@
+nav:
+  Home: /
+  Code: categories/Code
+  Read: categories/Read
+  Life: categories/Life
+  English: categories/English
+  Docs: archives
+  Me: https://github.com/lihongbin100
+
+projects_url:  https://github.com/lihongbin100
+
+customize:
+    gravatar:
+        email: 
+    logo:
+        enabled: true
+        width: 50
+        height: 50
+        url: https://tvax1.sinaimg.cn/crop.0.0.750.750.180/5c2e98bfly8fgf1weephpj20ku0kuabj.jpg
+        gravatar: false
+    favicon: 
+      # eg. generate with http://realfavicongenerator.net/
+      desktop:
+        url: https://tvax1.sinaimg.cn/crop.0.0.750.750.180/5c2e98bfly8fgf1weephpj20ku0kuabj.jpg
+        gravatar: false
+      android:
+        url: https://tvax1.sinaimg.cn/crop.0.0.750.750.180/5c2e98bfly8fgf1weephpj20ku0kuabj.jpg
+        gravator: false
+      apple:
+        url: https://tvax1.sinaimg.cn/crop.0.0.750.750.180/5c2e98bfly8fgf1weephpj20ku0kuabj.jpg
+        gravator: false
+    social_links:
+        github:  https://github.com/lihongbin100
+        twitter: /
+        facebook: /
+        linkedin: /
+    post_count: 5
+    highlight: lightcode
+
+# keept it like this to add the root path (probably a bug)
+root: ..
+
+solar:
+    # factor between 0 (fast), 1(normal), 2(very slow)  
+    speed: 1
+    sun_image: /images/sun.png
+    earth_image: /images/earth.png
+    jupiter_image: /images/jupiter.png
+    mars_image: /images/mars.png
+    mercury_image: /images/mercury.png
+    shadow_image: /images/shadow.png
+    venus_image: /images/venus.png
+
+# RSS
+rss: false
+
+# Plugins
+plugins:
+    disqus_shortname: # Disqus Comments Shortname
+    google_analytics: # enter the tracking ID for your Google Analytics
+
+# Miscellaneous
+miscellaneous:
+    open_graph: # see http://ogp.me
+        fb_app_id:
+        fb_admins:
+        twitter_id:
+        google_plus:
