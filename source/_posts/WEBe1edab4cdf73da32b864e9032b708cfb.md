@@ -1,13 +1,13 @@
 
-  title: 基于webpack 的 vue 多页架构
-  tags: 
-    - Code
-  categories: 
-    - Code
-  comments: true
-  count: 12
-  date: 2018/6/13
-  ---
+title: 基于webpack 的 vue 多页架构
+tags: 
+  - Code
+categories: 
+  - Code
+comments: true
+count: 12
+date: 2018/6/13
+---
   > 使用vue构建单页应用已经是稀松平常的事情了，但是当你遇到类似活动类需求时，每个活动相对独立，当活动达到30各以上时，长时间的构建过程会拖慢整个开发周期，而且也是不必要的。因此多页架构应运而生。
 
 ## 脚手架

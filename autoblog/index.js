@@ -59,16 +59,16 @@ function start(tl, pathName, userPath) {
 function fw(fileName, content, title, tl, day) {
   console.log("正在写入=>" + (++bookIndex) + "=>", title)
   let count = Math.ceil(content.length / 200)
-  content = `
-  title: ${title}
-  tags: 
-    - ${tl}
-  categories: 
-    - ${tl}
-  comments: true
-  count: ${count}
-  date: ${day}
-  ---
+content = `
+title: ${title}
+tags: 
+  - ${tl}
+categories: 
+  - ${tl}
+comments: true
+count: ${count}
+date: ${day}
+---
   ` + content
 
   var filePath = path.resolve(`./source/_posts/${fileName}.md`)
