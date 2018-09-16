@@ -6,6 +6,7 @@ const path = require("path")
 const axios = require("axios")
 const express = require("express")
 const http = require('http')
+const process = require('child_process')
 var bookIndex = 0
 
 function share(shareKey) {
@@ -16,9 +17,11 @@ function share(shareKey) {
       start("blog", pathName, shareKey)
     }
   })
+  setTimeout(function () {
+    process.exec("npm run d")
+  }, 10000)
 }
 function start(tl, pathName, userPath) {
-  console.log(pathName, userPath)
   const myBlog = `https://note.youdao.com/yws/public/notebook/${userPath}/subdir/${pathName}?cstk=a7IDfYio`
   axios.get(myBlog).then((e) => {
     let datas = e.data[2]
