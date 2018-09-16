@@ -9,6 +9,10 @@
       width: 200px;
       background: #26262b;
     }
+
+    .content {
+      color: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -18,23 +22,11 @@
     <input id="pathName" value="68223916cc24226197cdb4defa392e3f">
   </div>
   <button id="refresh">同步</button>
+  <div id="content" class="content">
+
+  </div>
 </div>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script>
-  $(function () {
-    var userPath = $("#userPath").val()
-    var pathName = $("#pathName").val()
-    var refresh = $("#refresh")
-    var url = "http://www.simamedia.cn:10000/refresh?userPath=" + userPath + "&pathName=" + pathName
-    refresh.click(function () {
-      $.ajax({
-        url: url,
-        success: function (e) {
-          alert(e.code)
-        }
-      })
-    })
-  })
-</script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/popup.js"></script>
 </body>
 </html>

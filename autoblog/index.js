@@ -6,11 +6,19 @@ const path = require("path")
 const axios = require("axios")
 const express = require("express")
 const http = require('http')
-var ind = 0
-
 var bookIndex = 0
 
+function share(shareKey) {
+  const sharePath = `https://note.youdao.com/yws/api/personal/share?method=get&shareKey=${shareKey}`
+  axios.get(sharePath).then(function (e) {
+    if (e.data.entry.oldEntryPath) {
+      var pathName = e.data.entry.oldEntryPath.replace("/", "")
+      start("blog", pathName, shareKey)
+    }
+  })
+}
 function start(tl, pathName, userPath) {
+  console.log(pathName, userPath)
   const myBlog = `https://note.youdao.com/yws/public/notebook/${userPath}/subdir/${pathName}?cstk=a7IDfYio`
   axios.get(myBlog).then((e) => {
     let datas = e.data[2]
@@ -92,15 +100,13 @@ function removeDir(dir) {
 //http://localhost:10000/refresh?userPath=WEBdeca409426648580d9ecdc8c1285a7e5&pathName=68223916cc24226197cdb4defa392e3f
 const app = express()
 app.use('/refresh', function (req, res, next) {
-  var userPath = req.param("userPath")
-  var pathName = req.param("pathName")
+  var shareKey = req.param("shareKey")
   removeDir(path.resolve("./source/_posts"))
-  var l = start("blog", userPath, pathName)
-  res.send(`{"code":200,"data":${l}`);
+  var l = share(shareKey)
+  res.send(`{"code":200,"data":${l}}`);
 });
 app.use('/info', function (req, res, next) {
   var id = req.param("id")
-  console.log(id)
   res.send(`{"code":200,"id":${id}`);
 });
 app.use('/save', function (req, res, next) {
@@ -109,11 +115,6 @@ app.use('/save', function (req, res, next) {
   res.send(`{"code":200,"id":${id}`);
 });
 var server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
 server.listen(10000);
 
 
