@@ -4,10 +4,11 @@
 const fs = require("fs")
 const path = require("path")
 const axios = require("axios")
+const express = require("express")
 var bookIndex = 0
 
-function start(tl, pathName) {
-  const myBlog = `https://note.youdao.com/yws/public/notebook/68223916cc24226197cdb4defa392e3f/subdir/${pathName}?cstk=a7IDfYio`
+function start(tl, pathName, userPath) {
+  const myBlog = `https://note.youdao.com/yws/public/notebook/${userPath}/subdir/${pathName}?cstk=a7IDfYio`
   axios.get(myBlog).then((e) => {
     let datas = e.data[2]
     for (data of datas) {
@@ -15,7 +16,7 @@ function start(tl, pathName) {
       if (data.tl.indexOf(".md") > -1) {
         let title = data.tl.replace(".md", "")
         let day = dateForm(data.ct)
-        let purl = `https://note.youdao.com/yws/api/personal/file/${pathId}?method=download&read=true&shareKey=68223916cc24226197cdb4defa392e3f&cstk=a7IDfYio`
+        let purl = `https://note.youdao.com/yws/api/personal/file/${pathId}?method=download&read=true&shareKey=${userPath}&cstk=a7IDfYio`
         axios.get(purl).then((e) => {
           fw(pathId, e.data, title, tl, day)
         }).catch((e) => {
@@ -25,7 +26,7 @@ function start(tl, pathName) {
       }
       if (data.tl.indexOf(".note") > -1) {
         let day = dateForm(Number(data.ct))
-        let noteUrl = `https://note.youdao.com/yws/public/note/68223916cc24226197cdb4defa392e3f/${pathId}?editorType=0&cstk=a7IDfYio`
+        let noteUrl = `https://note.youdao.com/yws/public/note/${userPath}/${pathId}?editorType=0&cstk=a7IDfYio`
         axios.get(noteUrl).then((e) => {
           fw(pathId, e.data.content, e.data.tl, tl, day)
         }).catch((e) => {
@@ -43,8 +44,8 @@ function start(tl, pathName) {
 
 function fw(fileName, content, title, tl, day) {
   console.log("正在写入=>" + (++bookIndex) + "=>", title)
-  let count = Math.ceil(content.length/200)
-    content = `
+  let count = Math.ceil(content.length / 200)
+  content = `
   title: ${title}
   tags: 
     - ${tl}
@@ -69,8 +70,27 @@ function dateForm(dat) {
   var date = da.getDate() + ""
   return [year, month, date].join('/')
 }
+const app = express()
+app.use('/refresh', function (req, res, next) {
+  var userPath = req.param("userPath")
+  var pathName = req.param("pathName")
+  start("blog", userPath, pathName)
+  res.send(`{"code":200}`);
+});
+app.use('/info', function (req, res, next) {
+  var id = req.param("id")
+  console.log(id)
+  res.send(`{"code":200,"id":${id}`);
+});
+app.use('/save', function (req, res, next) {
+  var id = req.param("id")
+  console.log(id)
+  res.send(`{"code":200,"id":${id}`);
+});
 
-start("blog", "WEBdeca409426648580d9ecdc8c1285a7e5")
+
+
+
 
 
 

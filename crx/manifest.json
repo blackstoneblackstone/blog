@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "learning test crx",
-  "description": "A auto test tool for learning center project, it is chrome extension",
+  "name": "Auto blog from YouDao",
+  "description": "Auto blog from YouDao",
   "version": "1.0",
   "permissions":  [
     "activeTab",
@@ -11,8 +11,8 @@
     "https://*/"
   ],
   "browser_action": {
-    "default_title":"Learning Center Test",
-    "default_icon": "favicon.jpg",
+    "default_title":"Auto blog from YouDao",
+    "default_icon": "./favicon.png",
     "default_popup": "popup.html"
   }
 }
