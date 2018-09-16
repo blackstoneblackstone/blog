@@ -1,14 +1,14 @@
 
-title: 意识（泰格马克《生命3.0》）
-tags: 
-  - Read
-categories: 
-  - Read
-comments: true
-count: 2
-date: 2017/10/13
----
-## 细思恐极
+  title: 意识（泰格马克《生命3.0》）
+  tags: 
+    - Read
+  categories: 
+    - Read
+  comments: true
+  count: 2
+  date: 2017/10/13
+  ---
+  ## 细思恐极
  1. 人跟机器的区别：感情
  2. 感情是思维快捷方式？是对于经历的事物的主观体验
 3. 验证意识存在的方法

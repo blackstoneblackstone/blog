@@ -6,7 +6,7 @@
     "version": "3.7.1"
   },
   "scripts": {
-    "s": "rm -rf source/_posts/* & node autoblog/index.js",
+    "s": "node autoblog/index.js",
     "w": "hexo generate --watch",
     "d": "rm -rf public/* & hexo g -d"
   },

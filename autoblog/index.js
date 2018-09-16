@@ -5,6 +5,9 @@ const fs = require("fs")
 const path = require("path")
 const axios = require("axios")
 const express = require("express")
+const http = require('http')
+var ind=0
+
 var bookIndex = 0
 
 function start(tl, pathName, userPath) {
@@ -34,7 +37,7 @@ function start(tl, pathName, userPath) {
         })
         continue
       }
-      start(data.tl, pathId)
+      start(data.tl, pathId, userPath)
     }
   }).catch((e) => {
     console.log("错误=====》", e)
@@ -58,6 +61,7 @@ function fw(fileName, content, title, tl, day) {
   ` + content
 
   var filePath = path.resolve(`./source/_posts/${fileName}.md`)
+
   fs.open(filePath, 'wx', (err, fd) => {
     fs.writeFileSync(filePath, content);
   });
@@ -70,10 +74,31 @@ function dateForm(dat) {
   var date = da.getDate() + ""
   return [year, month, date].join('/')
 }
+
+function removeDir(dir) {
+  let files = fs.readdirSync(dir)
+  for (var i = 0; i < files.length; i++) {
+    let newPath = path.join(dir, files[i]);
+    let stat = fs.statSync(newPath)
+    if (stat.isDirectory()) {
+      //如果是文件夹就递归下去
+      removeDir(newPath);
+    } else {
+      //删除文件
+      fs.unlinkSync(newPath);
+    }
+  }
+}
+//http://localhost:10000/refresh?userPath=WEBdeca409426648580d9ecdc8c1285a7e5&pathName=68223916cc24226197cdb4defa392e3f
 const app = express()
 app.use('/refresh', function (req, res, next) {
   var userPath = req.param("userPath")
   var pathName = req.param("pathName")
+
+  console.log(pathName)
+  console.log(userPath)
+
+  removeDir(path.resolve("./source/_posts"))
   start("blog", userPath, pathName)
   res.send(`{"code":200}`);
 });
@@ -87,10 +112,13 @@ app.use('/save', function (req, res, next) {
   console.log(id)
   res.send(`{"code":200,"id":${id}`);
 });
+var server = http.createServer(app);
 
+/**
+ * Listen on provided port, on all network interfaces.
+ */
 
-
-
+server.listen(10000);
 
 
 
