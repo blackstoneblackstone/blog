@@ -14,14 +14,26 @@
 <body>
 <div>
   <div class="">
-
+    <input id="userPath" value="WEBdeca409426648580d9ecdc8c1285a7e5">
+    <input id="pathName" value="68223916cc24226197cdb4defa392e3f">
   </div>
-  <button>同步</button>
+  <button id="refresh">同步</button>
 </div>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script>
   $(function () {
-
+    var userPath = $("#userPath").val()
+    var pathName = $("#pathName").val()
+    var refresh = $("#refresh")
+    var url = "http://www.simamedia.cn:10000/refresh?userPath=" + userPath + "&pathName=" + pathName
+    refresh.click(function () {
+      $.ajax({
+        url: url,
+        success: function (e) {
+          alert(e.code)
+        }
+      })
+    })
   })
 </script>
 </body>

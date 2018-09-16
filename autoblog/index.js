@@ -6,7 +6,7 @@ const path = require("path")
 const axios = require("axios")
 const express = require("express")
 const http = require('http')
-var ind=0
+var ind = 0
 
 var bookIndex = 0
 
@@ -94,13 +94,9 @@ const app = express()
 app.use('/refresh', function (req, res, next) {
   var userPath = req.param("userPath")
   var pathName = req.param("pathName")
-
-  console.log(pathName)
-  console.log(userPath)
-
   removeDir(path.resolve("./source/_posts"))
-  start("blog", userPath, pathName)
-  res.send(`{"code":200}`);
+  var l = start("blog", userPath, pathName)
+  res.send(`{"code":200,"data":${l}`);
 });
 app.use('/info', function (req, res, next) {
   var id = req.param("id")
