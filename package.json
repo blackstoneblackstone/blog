@@ -6,7 +6,7 @@
     "version": "3.7.1"
   },
   "scripts": {
-    "f": "forever start -l forever.log -o out.log -e err.log autoblog/index.js",
+    "f": "forever start  --append -l forever.log -o out.log -e err.log autoblog/index.js",
     "p": "forever stop autoblog/index.js",
     "s": "node autoblog/index.js",
     "w": "hexo generate --watch",
