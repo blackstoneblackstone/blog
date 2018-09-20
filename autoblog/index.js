@@ -59,8 +59,7 @@ function start(tl, pathName, userPath) {
 function fw(fileName, content, title, tl, day) {
   console.log("正在写入=>" + (++bookIndex) + "=>", title)
   let count = Math.ceil(content.length / 200)
-content = `
-title: ${title}
+content = `title: ${title}
 tags: 
   - ${tl}
 categories: 
