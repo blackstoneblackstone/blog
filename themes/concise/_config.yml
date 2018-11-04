@@ -4,7 +4,7 @@ menu:
   Code: categories/Code
   Read: categories/Read
   Life: categories/Life
-  English: categories/English
+  English: categories/Media
   Tags: javascript:;
   Docs: archives
 
@@ -45,6 +45,12 @@ disqus:
   enable: true
   shortname: lihb    #your name
   count: true
+
+disqus_proxy:
+  shortname: ciqu
+  username: ciqu
+  host: disqus-prhexoxy.ycwalker.com
+  port: 443
 
 # 腾讯云分析 http://mta.qq.com/h5/base/ctr_realtime_data?app_id=500419572
 qqmta:
