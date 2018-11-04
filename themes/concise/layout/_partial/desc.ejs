@@ -1,20 +1,34 @@
 <article class="article" itemscope itemprop="blogPost">
-    <% if( post.title ) { %>
-    <header class="article-header-desc">
-        <% if( view ) { %>
-        <h1 itemprop="name">
-            <%= post.title %>
-        </h1>
-        <% } else { %>
-        <h1 itemprop="name">
-            <a href="<%- url_for(post.path) %>"><%= post.title %></a>
-        </h1>
-        <% } %>
-        <div class="article-meta clearfix">
-            <%- partial('post/date', {icon: true, date_format: null}) %>
-            <%- partial('post/tags') %>
-            <%- partial('post/count') %>
-        </div>
-    </header>
+  <% if( post.title ) { %>
+  <header class="article-header-desc">
+    <% if( view ) { %>
+    <h1 itemprop="name">
+      <%= post.title %>
+    </h1>
+    <% } else { %>
+    <h1 itemprop="name">
+      <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+    </h1>
     <% } %>
+    <div class="article-meta clearfix">
+      <%- partial('post/date', {icon: true, date_format: null}) %>
+      <%- partial('post/tags') %>
+      <%- partial('post/count') %>
+
+      <div class="article-tag-list">
+        <i class="icon-circle-more"></i>
+        <span class="article-tag-link" id="<%- post._id %>">
+    <script>
+      //当前页面打点
+      $.get("http://data.simamedia.cn/index.php?g=Restful&m=Blog&a=gt&url=<%- url_for(post.path) %>",
+        function (data) {
+          $("#<%-post._id%>").text(data.n)
+        })
+    </script>
+  </span>
+      </div>
+
+    </div>
+  </header>
+  <% } %>
 </article>

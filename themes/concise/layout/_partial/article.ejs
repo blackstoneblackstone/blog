@@ -13,6 +13,10 @@
         <div class="article-meta clearfix">
             <%- partial('post/date', {icon: true, date_format: null}) %>
             <%- partial('post/tags') %>
+          <div class="article-tag-list">
+            <i class="icon-circle-more"></i>
+            <span class="article-tag-link" id="seeNum"></span>
+          </div>
         </div>
     </header>
     <% } %>

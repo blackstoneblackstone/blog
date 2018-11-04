@@ -1,0 +1,12 @@
+<div class="article-tag-list">
+  <i class="icon-circle-more"></i>
+  <span class="article-tag-link">
+    <script>
+      //当前页面打点
+      $.get("http://data.simamedia.cn/index.php?g=Restful&m=Blog&a=gt&url=" + encodeURIComponent(location.pathname),
+        function (data) {
+          console.log(data.n)
+        })
+    </script>
+  </span>
+</div>
