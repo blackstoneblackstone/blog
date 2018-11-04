@@ -1,10 +1,10 @@
 <div id="nav" class="nav">
     <button id="open-panel" class="open-panel"><i class="icon-library"></i></button>
-    <div style="
+    <a href="http://www.simamedia.cn:10000/refresh?shareKey=68223916cc24226197cdb4defa392e3f" style="
     float: right;
     color: #fff;
     margin-top: 10px;
-    margin-right: 20px;"><%- theme.title %></div>
+    margin-right: 20px;"><%- theme.title %></a>
     <nav class="nav-inner">
 
         <% for (var i in theme.menu){ %>
@@ -17,9 +17,7 @@
             </div>
         </li>
         <% } else { %>
-        <li class="nav-item<% if( theme.menu[i] === '/' && is_home() || is_current(theme.menu[i]) ) {  %> active<% } %>">
             <a class="nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
-        </li>
         <% } %>
         <% } %>
         
