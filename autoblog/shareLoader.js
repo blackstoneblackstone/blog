@@ -32,7 +32,10 @@ function start(tl, pathName, userPath) {
         let day = dateForm(data.ct)
         let purl = `https://note.youdao.com/yws/api/personal/file/${pathId}?method=download&read=true&shareKey=${userPath}&cstk=a7IDfYio`
         axios.get(purl).then((e) => {
-          fw(pathId, e.data, title, tl, day)
+          //下载图片
+          let content = downLoadImg.md(e.data)
+          //保存文本
+          fw(pathId, content, title, tl, day)
         }).catch((e) => {
           console.log("错误=====》", e)
         })
@@ -43,7 +46,7 @@ function start(tl, pathName, userPath) {
         let noteUrl = `https://note.youdao.com/yws/public/note/${userPath}/${pathId}?editorType=0&cstk=a7IDfYio`
         axios.get(noteUrl).then((e) => {
           //下载图片
-          let content = downLoadImg(e.data.content)
+          let content = downLoadImg.note(e.data.content)
           //保存文本
           fw(pathId, content, e.data.tl, tl, day)
         }).catch((e) => {

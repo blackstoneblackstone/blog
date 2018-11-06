@@ -19,10 +19,10 @@ const downloadPic = function (src) {
   }
 }
 
-module.exports = function (content) {
+module.exports = {
+  note:function (content) {
   let exp = /img (data-media-type="image" )?src="\S+"/g
   let urls = content.replace(exp, function (x) {
-    console.log(x)
     let temp = x.replace(/(http|https){1}\S+/, function (w) {
       let wx = w.replace('"', "")
       //下载PIC
@@ -33,6 +33,20 @@ module.exports = function (content) {
     return temp+'"'
   })
   return urls
+},
+  md:function (content) {
+    let exp = /\!\[[^\]]+\]\([^\)]+\)/g
+    let urls = content.replace(exp, function (x) {
+      let temp = x.replace(/(http|https){1}\S+/, function (w) {
+        let wx = w.replace('\)', "")
+        //下载PIC
+        let newPic = "/images/" + md5(wx) + ".png"
+        return newPic
+      })
+      return temp+')'
+    })
+    return urls
+  }
 }
 
 
