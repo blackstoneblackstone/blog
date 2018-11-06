@@ -40,6 +40,7 @@ module.exports = {
       let temp = x.replace(/(http|https){1}\S+/, function (w) {
         let wx = w.replace('\)', "")
         //下载PIC
+        downloadPic(wx)
         let newPic = "/images/" + md5(wx) + ".png"
         return newPic
       })
