@@ -20,7 +20,7 @@
         <span class="article-tag-link" id="<%- post._id %>">
     <script>
       //当前页面打点
-      $.get("http://data.simamedia.cn/index.php?g=Restful&m=Blog&a=gt&url=<%- url_for(post.path) %>",
+      $.get("http://data.simamedia.cn/index.php?g=Restful&m=Blog&a=gt&pid=0&url=<%- url_for(post.path) %>",
         function (data) {
           $("#<%-post._id%>").text(data.n)
         })
