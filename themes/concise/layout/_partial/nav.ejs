@@ -1,6 +1,7 @@
 <div id="nav" class="nav">
     <button id="open-panel" class="open-panel"><i class="icon-library"></i></button>
-    <a href="http://www.simamedia.cn:10000/refresh?shareKey=68223916cc24226197cdb4defa392e3f"
+    <a
+    id="updateBlog"
     style="
     float: right;
     color: #fff;
@@ -9,7 +10,6 @@
       <%- theme.title %>
     </a>
     <nav class="nav-inner">
-
         <% for (var i in theme.menu){ %>
         <% if (theme.menu[i]==='javascript:;') { %>
         <li class="nav-item nav-item-tag">
@@ -25,7 +25,6 @@
         </li>
         <% } %>
         <% } %>
-        
-
     </nav>
 </div>
+

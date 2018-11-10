@@ -56,6 +56,22 @@
   <div id="content" class="content"><%- body %></div>
   <%- partial('_partial/footer') %>
 </div>
+<div id="tip" style="left: 50%;
+    top: 200px;
+    transform: translateX(-50%);
+    position:fixed;
+    z-index:10;
+    height: 100px;
+    width: 200px;
+    background: rgba(0,0,0,0.8);
+    border-radius: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 100px;
+    display: none;
+    font-size: 30px">
+  更新完成
+</div>
 
 <% if( is_post() ) { %>
 <script type="text/javascript" src="/js/scrollspy.min.js"></script>
@@ -92,6 +108,16 @@
       function (data) {
         $("#seeNum").text(data.n)
       })
+    $("#updateBlog").on("click", function (e) {
+      let url = "http://www.simamedia.cn:10000/refresh?shareKey=68223916cc24226197cdb4defa392e3f"
+      $.get(url,
+        function (data) {
+          $("#tip").fadeIn()
+          setTimeout(function () {
+            $("#tip").fadeOut()
+          }, 3000)
+        })
+    })
   });
 </script>
 
