@@ -91,3 +91,6 @@ deploy:
   repo: git@github.com:lihongbin100/lihongbin100.github.io.git
   branch: master
 
+aplayer:
+  meting: true
+
