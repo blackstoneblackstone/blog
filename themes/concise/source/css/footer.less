@@ -1,23 +1,21 @@
 @import (reference) './vars.less';
 
 .footer {
-    margin-left: @size-nav-width + @size-aside-width;
-    height: @size-footer-height;
-    line-height: @size-footer-height;
+  margin-left: @size-nav-width + @size-aside-width;
+  color: @color-muted;
+  text-align: center;
+  font-size: 13px;
+  width: 94%;
+  padding-left: 3%;
+  a {
     color: @color-muted;
-    text-align: center;
-    font-size: 13px;
-
-    a {
-        color: @color-muted;
-        text-decoration: underline;
-    }
+    text-decoration: underline;
+  }
 }
 
-
 @media screen and (max-width: @size-mobile-screen-width) {
-    .footer {
-        margin-left: 0;
-        padding-bottom: @size-mobile-nav-height;
-    }
+  .footer {
+    margin-left: 0;
+    padding-bottom: @size-mobile-nav-height;
+  }
 }
