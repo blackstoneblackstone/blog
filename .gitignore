@@ -5,3 +5,6 @@
 .idea
 yarn.lock
 package-lock.json
+config.ini
+source/.DS_Store
+fileUpload/player.pyc
