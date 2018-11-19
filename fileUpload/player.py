@@ -37,9 +37,9 @@ def listFile(filePath):
         if os.path.isdir(filePath + "/" + fileName):
             listFile(filePath + "/" + fileName)
         else:
-            os.rename(filePath + "/" + fileName, filePath + "/" + fileName.replace(' ', ''))
-            if re.match(r'lr[0-9]+\.mp3', fileName):
-                upFile(filePath + "/" + fileName, fileName)
+            # os.rename(filePath + "/" + fileName, filePath + "/" + fileName.replace(' ', '|'))
+            # if re.match(r'xzf[0-9]+\.mp3', fileName):
+            #     upFile(filePath + "/" + fileName, fileName)
             __s.append(fileName)
     return __s
 
@@ -47,4 +47,4 @@ def listFile(filePath):
 def upFile(localFile, onlineFile):
     with open(localFile, 'rb') as fileobj:
         fileobj.seek(0, os.SEEK_SET)
-        __bucket.put_object('lr/2016/' + onlineFile, fileobj)
+        __bucket.put_object('xzf/2017/' + onlineFile, fileobj)
