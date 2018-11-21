@@ -10,7 +10,7 @@
     "p": "forever stop autoblog/index.js",
     "s": "node autoblog/index.js",
     "w": "hexo generate --watch",
-    "d": "rm -rf public/* && cp CNAME public/CNAME && cp googledd7ba3bd3c220ab3.html public/googledd7ba3bd3c220ab3.html && hexo g -d",
+    "d": "rm -rf public/* && cp CNAME public/CNAME && cp googledd7ba3bd3c220ab3.html public/googledd7ba3bd3c220ab3.html && cp MP_verify_fdnVlwV4XvwRqAtj.txt public/MP_verify_fdnVlwV4XvwRqAtj.txt && hexo g -d",
     "pull": "git fetch --all && git reset --hard origin/master && git pull"
   },
   "dependencies": {
