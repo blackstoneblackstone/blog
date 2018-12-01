@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="google-site-verification" content="DlD3uB1OpBqyxkljyhDN2gEXDPbkY01Q1Asne0mnByE"/>
-  <meta name="baidu-site-verification" content="lZK4Fz9goD" />
-  <%
-  var title = page.title;
-  if (is_archive()) {
-    title = __('archive_a');
-    if (is_month()) {
-      title += ': ' + page.year + '/' + page.month;
-    } else if (is_year()) {
-      title += ': ' + page.year;
+    <meta charset="UTF-8"/>
+    <meta name="google-site-verification" content="DlD3uB1OpBqyxkljyhDN2gEXDPbkY01Q1Asne0mnByE"/>
+    <meta name="baidu-site-verification" content="lZK4Fz9goD"/>
+    <%
+    var title = page.title;
+    if (is_archive()) {
+        title = __('archive_a');
+        if (is_month()) {
+            title += ': ' + page.year + '/' + page.month;
+        } else if (is_year()) {
+            title += ': ' + page.year;
+        }
+    } else if (is_category()) {
+        title = __('category') + ': ' + page.category;
+    } else if (is_tag()) {
+        title = __('tag') + ': ' + page.tag;
     }
-  } else if (is_category()) {
-    title = __('category') + ': ' + page.category;
-  } else if (is_tag()) {
-    title = __('tag') + ': ' + page.tag;
-  }
-  %>
-  <%
-  var description = config.description;
-  if (is_post()) {
-    description = strip_html(page.content).substr(0, 250);
-  }
-  %>
+    %>
+    <%
+    var description = config.description;
+    if (is_post()) {
+        description = strip_html(page.content).substr(0, 250);
+    }
+    %>
 
-  <title>
-    <% if( title ) { %>
-    <%= title %> |
+    <title>
+        <% if( title ) { %>
+        <%= title %> |
+        <% } %>
+        <%= config.title %></title>
+    <meta name="author" content="<%= config.author %>"/>
+    <meta name="version" content="1.0.0"/>
+    <meta name="keywords" content="<%= config.keywords %>"/>
+    <meta name="description" content="<%= description %>"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+    <meta name="baidu-site-verification" content="F0CXvmUgA9"/>
+
+    <% if( theme.rss ) { %>
+    <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
     <% } %>
-    <%= config.title %></title>
-  <meta name="author" content="<%= config.author %>"/>
-  <meta name="version" content="1.0.0"/>
-  <meta name="keywords" content="<%= config.keywords %>"/>
-  <meta name="description" content="<%= description %>"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
-  <meta name="baidu-site-verification" content="F0CXvmUgA9"/>
+    <% if( theme.favicon ) { %>
+    <link rel="icon" href="<%- theme.favicon %>">
+    <% } %>
 
-  <% if( theme.rss ) { %>
-  <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
-  <% } %>
-  <% if( theme.favicon ) { %>
-  <link rel="icon" href="<%- theme.favicon %>">
-  <% } %>
-
-  <%- css('css/style') %>
-  <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <%- css('css/style') %>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
 <body>
 
 <div class="app">
-  <%- partial('_partial/header') %>
-  <div id="content" class="content"><%- body %></div>
-  <%- partial('_partial/footer') %>
+    <%- partial('_partial/header') %>
+    <div id="content" class="content"><%- body %></div>
+    <%- partial('_partial/footer') %>
 </div>
 <div id="tip" style="left: 50%;
     top: 200px;
@@ -70,7 +70,7 @@
     line-height: 100px;
     display: none;
     font-size: 30px">
-  更新完成
+    更新完成
 </div>
 
 <% if( is_post() ) { %>
@@ -95,9 +95,9 @@
       console.log(nodes.navTags.attr('class'))
     })
 
-    <% if (is_post()) { %>
-    $(document.body).scrollspy({target: '#aside-inner'});
-    <% } %>
+      <% if (is_post()) { %>
+    $(document.body).scrollspy({ target: '#aside-inner' });
+      <% } %>
 
     //当前页面打点
     $.get("http://data.simamedia.cn/index.php?g=Restful&m=Blog&a=hit&pid=0&url=" + encodeURIComponent(location.pathname),
@@ -144,20 +144,24 @@
         });
       })
     })
-    //百度自动推送爬虫
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
   });
 
 </script>
 
+<script>
+  //百度自动推送
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
 </body>
 </html>
