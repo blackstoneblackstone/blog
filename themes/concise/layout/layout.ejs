@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="google-site-verification" content="DlD3uB1OpBqyxkljyhDN2gEXDPbkY01Q1Asne0mnByE"/>
-    <meta name="baidu-site-verification" content="lZK4Fz9goD"/>
+    <meta charset="UTF-8" />
+    <meta name="google-site-verification" content="DlD3uB1OpBqyxkljyhDN2gEXDPbkY01Q1Asne0mnByE" />
+    <meta name="baidu-site-verification" content="lZK4Fz9goD" />
     <%
     var title = page.title;
     if (is_archive()) {
@@ -31,13 +31,13 @@
         <%= title %> |
         <% } %>
         <%= config.title %></title>
-    <meta name="author" content="<%= config.author %>"/>
-    <meta name="version" content="1.0.0"/>
-    <meta name="keywords" content="<%= config.keywords %>"/>
-    <meta name="description" content="<%= description %>"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
-    <meta name="baidu-site-verification" content="F0CXvmUgA9"/>
+    <meta name="author" content="<%= config.author %>" />
+    <meta name="version" content="1.0.0" />
+    <meta name="keywords" content="<%= config.keywords %>" />
+    <meta name="description" content="<%= description %>" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="baidu-site-verification" content="F0CXvmUgA9" />
 
     <% if( theme.rss ) { %>
     <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
@@ -90,32 +90,32 @@
     });
     $('#nav-tag').on('click', function (event) {
       event.preventDefault();
-      console.log(nodes.navTags.attr('class'))
+      console.log(nodes.navTags.attr('class'));
       nodes.navTags.toggleClass('tag-show');
-      console.log(nodes.navTags.attr('class'))
-    })
+      console.log(nodes.navTags.attr('class'));
+    });
 
       <% if (is_post()) { %>
     $(document.body).scrollspy({ target: '#aside-inner' });
       <% } %>
 
     //当前页面打点
-    $.get("http://data.simamedia.cn/index.php?g=Restful&m=Blog&a=hit&pid=0&url=" + encodeURIComponent(location.pathname),
+    $.get('http://data.simamedia.cn/index.php?g=Restful&m=Blog&a=hit&pid=0&url=' + encodeURIComponent(location.pathname),
       function (data) {
-        $("#seeNum").text(data.n)
-      })
-    $("#updateBlog").on("click", function (e) {
-      let url = "http://data.simamedia.cn:10000/refresh?shareKey=bf425fe49ab4933f78173872d6b8a3fd"
+        $('#seeNum').text(data.n);
+      });
+    $('#updateBlog').on('click', function (e) {
+      let url = 'http://data.simamedia.cn:10000/refresh?shareKey=bf425fe49ab4933f78173872d6b8a3fd';
       $.get(url,
         function (data) {
-          $("#tip").fadeIn()
+          $('#tip').fadeIn();
           setTimeout(function () {
-            $("#tip").fadeOut()
-          }, 3000)
-        })
-    })
-    $.get("http://data.simamedia.cn/index.php?g=Restful&m=Oauth&a=wechatJs&url=" + window.location.href, function (data) {
-      $.get("http://data.simamedia.cn/index.php?g=Restful&m=Oauth&a=wechatJs&url=" + window.location.href, function (data) {
+            $('#tip').fadeOut();
+          }, 3000);
+        });
+    });
+    $.get('http://data.simamedia.cn/index.php?g=Restful&m=Oauth&a=wechatJs&url=' + window.location.href, function (data) {
+      $.get('http://data.simamedia.cn/index.php?g=Restful&m=Oauth&a=wechatJs&url=' + window.location.href, function (data) {
         wx.config(
           data.sp
         );
@@ -142,14 +142,37 @@
             }
           });
         });
-      })
-    })
+      });
+    });
     //百度自动化推送
     var img = new Image();
-    img.src = "http://api.share.baidu.com/s.gif?r=" + encodeURIComponent(window.location.href) + "&l=http://yondu.vip"
+    img.src = 'http://api.share.baidu.com/s.gif?r=' + encodeURIComponent(window.location.href) + '&l=http://yondu.vip';
 
   });
 </script>
+<a href="//blog.yondu.vip">
+    <div class="blog">
+        我的blog全新升级了，干货更多， 欢迎点击访问。
+    </div>
+</a>
+<style>
+    .blog {
+        background: rgba(0, 0, 0, 0.8);
+        color: #ffffff;
+        line-height: 80px;
+        font-size: 18px;
+        height: 80px;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
 
+    @media only screen and (max-width: 700px) {
+        .blog {
+            bottom: 40px;
+        }
+    }
+</style>
 </body>
 </html>
