@@ -100,7 +100,7 @@
       <% } %>
 
     //当前页面打点
-    $.get('http://data.simamedia.cn/index.php?g=Restful&m=Blog&a=hit&pid=0&url=' + encodeURIComponent(location.pathname),
+    $.get('http://blog.yondu.vip/index.php?g=Restful&m=Blog&a=hit&pid=0&url=' + encodeURIComponent(location.pathname),
       function (data) {
         $('#seeNum').text(data.n);
       });
@@ -114,8 +114,8 @@
           }, 3000);
         });
     });
-    $.get('http://data.simamedia.cn/index.php?g=Restful&m=Oauth&a=wechatJs&url=' + window.location.href, function (data) {
-      $.get('http://data.simamedia.cn/index.php?g=Restful&m=Oauth&a=wechatJs&url=' + window.location.href, function (data) {
+    $.get('http://blog.yondu.vip/index.php?g=Restful&m=Oauth&a=wechatJs&url=' + window.location.href, function (data) {
+      $.get('http://blog.yondu.vip/index.php?g=Restful&m=Oauth&a=wechatJs&url=' + window.location.href, function (data) {
         wx.config(
           data.sp
         );
