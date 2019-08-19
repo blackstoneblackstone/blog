@@ -2,6 +2,11 @@
 @import (reference) './mixin.less';
 
 @nav-line-height: 46px;
+
+#updateBlog{
+  margin-right: 30px;
+  writing-mode: vertical-rl;
+}
 .nav {
   position: relative;
   z-index: 80;
@@ -149,6 +154,7 @@
 }
 
 @media screen and (max-width: @size-mobile-screen-width) {
+  
   .nav {
     width: auto;
     height: @size-mobile-nav-height;
